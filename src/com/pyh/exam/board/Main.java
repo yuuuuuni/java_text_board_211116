@@ -16,22 +16,25 @@ public class Main {
 
     while (true) {
       System.out.printf("명령) ");
-      String str = sc.nextLine();
+      String cmd = sc.nextLine();
 
-      if(str.equals("exit")) {
-        System.out.println("입력된 명령어 : " + str);
+      if(cmd.equals("exit")) {
+        System.out.println("입력된 명령어 : " + cmd);
         break;
       }
 
-      else if(str.equals("/usr/article/write")) {
+
+      else if(cmd.equals("/usr/article/write")) {
         System.out.println("- 게시물 등록 -");
+        articlesLastId++;
+        int id = articlesLastId;
+
         System.out.printf("제목 : ");
         String title = sc.nextLine();
         System.out.printf("내용 : ");
         String body = sc.nextLine();
 
-        id = articlesLastId + 1;
-        articlesLastId = id;
+
 
         Article article = new Article();
         article.id = id;
@@ -42,7 +45,7 @@ public class Main {
         System.out.println(article.id + "번 게시물이 등록되었습니다.");
       }
       else {
-        System.out.println("입력된 명령어 : " + str);
+        System.out.println("입력된 명령어 : " + cmd);
       }
     }
 
@@ -60,4 +63,9 @@ class Article {
   String title;
   String body;
 
+
+@Override
+public String toString() {
+  return String.format("{ id : " + id + ", title : " + title + "}" );
+ }
 }
