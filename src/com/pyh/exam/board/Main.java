@@ -11,12 +11,14 @@ public class Main {
     System.out.println("== 게시판 v 0.1 ==");
     System.out.println("== 프로그램 시작 ==");
 
-    while (true) {
+    int articlesLastId = 0;
 
+    while (true) {
       System.out.printf("명령) ");
       String str = sc.nextLine();
 
       if(str.equals("exit")) {
+        System.out.println("입력된 명령어 : " + str);
         break;
       }
 
@@ -26,7 +28,10 @@ public class Main {
         String title = sc.nextLine();
         System.out.printf("내용 : ");
         String body = sc.nextLine();
-        int id = 1;
+
+        id = articlesLastId + 1;
+        articlesLastId ++;
+
         System.out.println(id + "번 게시물이 등록되었습니다.");
       }
       else {
