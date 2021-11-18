@@ -13,6 +13,7 @@ public class Main {
     System.out.println("== 프로그램 시작 ==");
 
     int articlesLastId = 0;
+    Article lastArticle = null;
 
     while (true) {
       System.out.printf("명령) ");
@@ -21,6 +22,22 @@ public class Main {
       if(cmd.equals("exit")) {
         System.out.println("입력된 명령어 : " + cmd);
         break;
+      }
+
+      else if(cmd.equals("/usr/article/detail")) {
+
+        if(lastArticle == null) {
+          System.out.println("게시물이 존재하지 않습니다.");
+          continue;
+        }
+
+        Article article = lastArticle;
+
+        System.out.println("- 게시물 상세내용 -");
+        System.out.println("번호 :" + article.id);
+        System.out.println("제목 :" + article.title);
+        System.out.println("내용 :" + article.body);
+
       }
 
 
@@ -37,6 +54,7 @@ public class Main {
 
 
         Article article = new Article(id, title, body);
+        lastArticle = article;
         System.out.println("생성된 게시물 객체 : " + article);
 
         System.out.println(article.id + "번 게시물이 등록되었습니다.");
@@ -69,6 +87,7 @@ class Article {
 
 @Override
 public String toString() {
-  return String.format("{ id : " + id + ", title : " + title + ", body : " + body + "}" );
+
+    return String.format("id : %d, title : \"%s\", body : \"%s\"", id, title, body );
  }
 }
