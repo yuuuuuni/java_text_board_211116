@@ -13,7 +13,7 @@ public class Main {
     System.out.println("== 프로그램 시작 ==");
 
     int articlesLastId = 0;
-    Article lastArticle = null;
+    Article lastArticle = null;  // 그냥 int i = 1; String a = "안녕" 처럼 그냥 저것도 변수타입 변수명 = 값이라고 생각하면 됨  Article이 변수타입, article이 변수명
 
     while (true) {
       System.out.printf("명령) ");
@@ -50,7 +50,6 @@ public class Main {
         String title = sc.nextLine();
         System.out.printf("내용 : ");
         String body = sc.nextLine();
-
 
 
         Article article = new Article(id, title, body);
