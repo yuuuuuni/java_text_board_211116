@@ -82,6 +82,7 @@ public class Main {
 
         Article article = new Article(id, title, body);
         lastArticle = article;  // article에 있는 객체가 lastArticle로 옮겨지는게 아니라 얘네 둘은 그냥 리모콘임 리모콘이 두개가 생기는 것임
+        articles.add(article);
         System.out.println("생성된 게시물 객체 : " + article);
 
         System.out.println(article.id + "번 게시물이 등록되었습니다.");
