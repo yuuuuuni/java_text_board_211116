@@ -27,6 +27,10 @@ public class Main {
 
     makeTestData(articles);
 
+    if(articles.size() > 0) {
+      articlesLastId = articles.get(articles.size() - 1).id;
+    }
+
     while (true) {
       System.out.printf("명령) ");
       String cmd = sc.nextLine();
