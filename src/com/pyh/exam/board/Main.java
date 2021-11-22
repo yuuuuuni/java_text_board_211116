@@ -42,7 +42,8 @@ public class Main {
         System.out.println("번호 / 제목");
         System.out.println("--------------------");
 
-        for (Article article : articles) {
+        for (int i = articles.size() - 1; i >= 0; i--) {
+          Article article = articles.get(i);
           System.out.println(article.id + "/" + article.title);
         }
 
