@@ -22,7 +22,6 @@ public class Main {
     System.out.println("== 프로그램 시작 ==");
 
     int articlesLastId = 0;
-    Article lastArticle = null;  // 그냥 int i = 1; String a = "안녕" 처럼 그냥 저것도 변수타입 변수명 = 값이라고 생각하면 됨  Article이 변수타입, article이 변수명
     ArrayList<Article> articles = new ArrayList<Article>();
 
     makeTestData(articles);
@@ -54,12 +53,12 @@ public class Main {
       }
       else if(cmd.equals("/usr/article/detail")) {
 
-        if(lastArticle == null) {
+        if(articles.isEmpty()) {
           System.out.println("게시물이 존재하지 않습니다.");
           continue;
         }
 
-        Article article = lastArticle;
+        Article article = articles.get(articles.size() - 1);
 
         System.out.println("- 게시물 상세내용 -");
         System.out.println("번호 :" + article.id);
@@ -81,7 +80,6 @@ public class Main {
 
 
         Article article = new Article(id, title, body);
-        lastArticle = article;  // article에 있는 객체가 lastArticle로 옮겨지는게 아니라 얘네 둘은 그냥 리모콘임 리모콘이 두개가 생기는 것임
         articles.add(article);
         System.out.println("생성된 게시물 객체 : " + article);
 
