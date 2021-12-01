@@ -49,7 +49,19 @@ public class Main {
                 }
             }
             else if(rq.getUrlPath().equals("/usr/article/detail")) {
-                int id = Integer.parseInt(params.get("id"));
+                if(params.containsKey("id") == false) { // containsKey는 params에 id 있냐라고 묻는 것
+                    System.out.println("id를 입력해주세요.");
+                    continue;
+                }
+
+                int id = 0;
+                try { // try - catch 문 쓸 때 변수는 밖에다가 선언하는 것이 좋음
+                    id = Integer.parseInt(params.get("id"));
+                }
+                catch(NumberFormatException e) {
+                    System.out.println("id를 정수 형태로 입력해주세요.");
+                    continue;
+                }
 
 
 
